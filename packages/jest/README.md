@@ -20,7 +20,7 @@ projects with the Jest test runner.
 - Yarn v1.2.1+, or npm v5.4+
 - Neutrino 9 and one of the Neutrino build presets
 - webpack 4
-- Jest 24
+- Jest 24-26
 
 ## Quickstart
 
@@ -255,7 +255,7 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
 _shim.js for the example above_
 
 ```js
-global.requestAnimationFrame = callback => {
+global.requestAnimationFrame = (callback) => {
   setTimeout(callback, 0);
 };
 ```
@@ -292,12 +292,12 @@ const jest = require('@neutrinojs/jest');
 module.exports = {
   use: [
     jest(),
-    neutrino => {
+    (neutrino) => {
       if (process.env.NODE_ENV === 'test') {
         neutrino.config.module
           .rule('compile')
           .use('babel')
-          .tap(options =>
+          .tap((options) =>
             merge(options, {
               env: {
                 test: {

@@ -2,7 +2,7 @@ const web = require('@neutrinojs/web');
 const babelMerge = require('babel-merge');
 const merge = require('deepmerge');
 
-module.exports = (opts = {}) => neutrino => {
+module.exports = (opts = {}) => (neutrino) => {
   const options = merge(
     {
       hot: true,
@@ -30,12 +30,6 @@ module.exports = (opts = {}) => neutrino => {
               removeImport: true,
             },
           ],
-          // Using loose for the reasons here:
-          // https://github.com/facebook/create-react-app/issues/4263
-          [
-            require.resolve('@babel/plugin-proposal-class-properties'),
-            { loose: true },
-          ],
         ].filter(Boolean),
         presets: [
           [
@@ -61,7 +55,7 @@ module.exports = (opts = {}) => neutrino => {
   if (lintRule) {
     lintRule.use('eslint').tap(
       // Don't adjust the lint configuration for projects using their own .eslintrc.
-      lintOptions =>
+      (lintOptions) =>
         lintOptions.useEslintrc
           ? lintOptions
           : merge(lintOptions, {

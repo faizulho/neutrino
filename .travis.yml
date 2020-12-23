@@ -1,9 +1,9 @@
-dist: xenial
+dist: focal
 language: node_js
 cache: yarn
 node_js:
   - '10'
-  - '13'
+  - '14'
 env:
   - CREATE_PROJECT_YARN=true
   - CREATE_PROJECT_YARN=false

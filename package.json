@@ -15,7 +15,8 @@
     "packages/*"
   ],
   "scripts": {
-    "changelog": "auto-changelog --package lerna.json",
+    "changelog": "auto-changelog",
+    "changelog:unreleased": "auto-changelog --package lerna.json",
     "docs:bootstrap": "pip install -r docs/requirements.txt",
     "docs:serve": "mkdocs serve",
     "link:all": "lerna exec yarn link",
@@ -23,7 +24,7 @@
     "prettier:check": "prettier --ignore-path .eslintignore --check \"**/*.{css,html,js,jsx,json,md,yaml,yml}\"",
     "prettier:fix": "prettier --ignore-path .eslintignore --write \"**/*.{css,html,js,jsx,json,md,yaml,yml}\"",
     "print-version": "node -p \"'v' +require('./lerna.json').version\"",
-    "release:prepare": "lerna version && prettier --write lerna.json && yarn changelog",
+    "release:prepare": "lerna version && prettier --write lerna.json && yarn changelog:unreleased",
     "release:commit": "git commit --all --message $(yarn -s print-version) --edit",
     "release:tag": "git tag $(yarn -s print-version) && git push upstream $(yarn -s print-version)",
     "release:publish": "lerna publish from-package",
@@ -39,23 +40,23 @@
     "validate:eslintrc": "yarn validate:eslintrc:eslint && yarn validate:eslintrc:airbnb-base && yarn validate:eslintrc:airbnb && yarn validate:eslintrc:standardjs && yarn validate:eslintrc:root"
   },
   "devDependencies": {
-    "auto-changelog": "^1.16.2",
+    "auto-changelog": "^2.2.1",
     "ava": "^1.4.1",
-    "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "husky": "^3.0.9",
-    "jest": "^24.9.0",
-    "karma": "^4.4.1",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "husky": "^4.3.6",
+    "jest": "^26.6.3",
+    "karma": "^5.2.3",
     "karma-cli": "^2.0.0",
-    "lerna": "^3.18.4",
-    "lint-staged": "^9.4.2",
-    "mocha": "^6.2.2",
-    "prettier": "^1.19.1",
-    "verdaccio": "^4.3.4",
-    "verdaccio-memory": "^8.3.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.5.3",
+    "mocha": "^8.2.1",
+    "prettier": "^2.2.1",
+    "verdaccio": "^4.10.0",
+    "verdaccio-memory": "^9.7.2",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }

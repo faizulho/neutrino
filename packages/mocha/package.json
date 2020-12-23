@@ -1,6 +1,6 @@
 {
   "name": "@neutrinojs/mocha",
-  "version": "9.0.0-rc.5",
+  "version": "9.5.0",
   "description": "Neutrino preset for testing Neutrino projects with Mocha",
   "main": "src/index.js",
   "keywords": [
@@ -24,15 +24,15 @@
     "yarn": ">=1.2.1"
   },
   "dependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/plugin-transform-modules-commonjs": "^7.7.0",
-    "@babel/register": "^7.7.0",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+    "@babel/register": "^7.12.10",
     "babel-merge": "^3.0.0",
     "deepmerge": "^1.5.2",
     "lodash.omit": "^4.5.0"
   },
   "peerDependencies": {
-    "mocha": "^6.0.0",
-    "neutrino": "9.0.0-rc.5"
+    "mocha": "^6.0.0 || ^7.0.0 || ^8.0.0",
+    "neutrino": "^9.0.0"
   }
 }

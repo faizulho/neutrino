@@ -18,7 +18,7 @@ projects with the Mocha test runner.
 - Yarn v1.2.1+, or npm v5.4+
 - Neutrino 9 and one of the Neutrino build presets
 - webpack 4
-- Mocha 6
+- Mocha 6 or 7
 
 ## Quickstart
 
@@ -212,12 +212,12 @@ const mocha = require('@neutrinojs/mocha');
 module.exports = {
   use: [
     mocha(),
-    neutrino => {
+    (neutrino) => {
       if (process.env.NODE_ENV === 'test') {
         neutrino.config.module
           .rule('compile')
           .use('babel')
-          .tap(options =>
+          .tap((options) =>
             merge(options, {
               env: {
                 test: {
